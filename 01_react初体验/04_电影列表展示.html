@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/babel.js"></script>
+
+    <script type="text/babel">
+      // 创建root
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+
+      // 封装组件
+      class App extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            movies: ["大话西游", "流浪地球", "火星救援", "狂飙"]
+          };
+        }
+
+        render() {
+          const liEls = this.state.movies.map((movies) => {
+            return <li>{movies}</li>;
+          });
+          return (
+            <div>
+              <h2>电影列表</h2>
+              <ul>
+                <li>{liEls}</li>
+              </ul>
+            </div>
+          );
+        }
+      }
+
+      // 渲染组件
+      root.render(<App />);
+    </script>
+  </body>
+</html>

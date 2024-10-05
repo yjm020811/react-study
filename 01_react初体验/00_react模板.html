@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- 添加react依赖 -->
+    <!-- react相关的核心代码和方法 -->
+    <script src="../lib/react.js"></script>
+    <!-- react渲染在不同平台所需的核心代码 -->
+    <script src="../lib/react-dom.js"></script>
+    <!-- 将jsx转换为react的工具 -->
+    <script src="../lib/babel.js"></script>
+
+    <script type="text/babel">
+      // 创建root
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+
+      // 封装组件
+      class App extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            message: "Hello World",
+            books: [
+              { name: "yjm", age: 20 },
+              { name: "zxl", age: 21 },
+              { name: "kobe", age: 22 },
+              { name: "james", age: 23 }
+            ]
+          };
+          this.btnClick = this.btnClick.bind(this);
+        }
+
+        btnClick() {
+          this.setState({ message: "Hello React" });
+        }
+
+        render() {
+          const { message, books } = this.state;
+          return (
+            <div>
+              <button onClick={this.btnClick}>按钮</button>
+              <h2>{message}</h2>
+              <h2>列表数据</h2>
+              <div className="list">
+                {
+                  /* 过滤age>20的数据*/
+                  books
+                    .filter((item) => item.age > 20)
+                    .map((item, index) => {
+                      return (
+                        <div className="item" key={item.id}>
+                          <h2>姓名:{item.name}</h2>
+                          <h2>年龄:{item.age}</h2>
+                        </div>
+                      );
+                    })
+                }
+              </div>
+            </div>
+          );
+        }
+      }
+
+      // 渲染组件
+      root.render(<App />);
+    </script>
+  </body>
+</html>

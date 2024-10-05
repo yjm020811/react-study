@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/babel.js"></script>
+
+    <div id="root"></div>
+    <script type="text/babel">
+      //   使用组件重构代码
+      //   App
+      class App extends React.Component {
+        // 组件数据
+        constructor() {
+          super();
+          this.state = {
+            message: "Hello world",
+            name: "yjm",
+            age: 20
+          };
+          // 为了在回调中使用this,这个绑定是必不可少的
+          // this.btnClick=this.btnClick.bind(this)
+        }
+        //     组件方法
+        btnClick() {
+          // 1.将state中的值修改  2.自动重新执行render函数
+          this.setState({
+            message: "hello react",
+            name: "zxl",
+            age: 21
+          });
+        }
+        //     渲染内容render方法
+        render() {
+          return (
+            <div>
+              <h2>{this.state.message}</h2>
+              <h2>{this.state.name}</h2>
+              <h2>{this.state.age}</h2>
+              <button onClick={this.btnClick.bind(this)}>修改</button>
+            </div>
+          );
+        }
+      }
+      //   将组件渲染到页面上
+      const root = ReactDOM.createRoot(document.querySelector(" #root"));
+      // 根组件
+      root.render(<App />);
+    </script>
+  </body>
+</html>

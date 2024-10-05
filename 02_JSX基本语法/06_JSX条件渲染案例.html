@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/babel.js"></script>
+
+    <script type="text/babel">
+      // 创建root
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+
+      // 封装组件
+      class App extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            message: "Hello World",
+            isReady: true
+          };
+        }
+
+        changeIsReady() {
+          this.setState({
+            isReady: !this.state.isReady
+          });
+        }
+
+        render() {
+          const { message, isReady } = this.state;
+          let showElement = null;
+          if (isReady) {
+            showElement = <h2>准备开始</h2>;
+          } else {
+            showElement = <h2></h2>;
+          }
+          return (
+            <div>
+              {/*根据条件给变量赋值不同的内容*/}
+              {showElement}
+              <button onClick={this.changeIsReady.bind(this)}>111</button>
+            </div>
+          );
+        }
+      }
+
+      // 渲染组件
+      root.render(<App />);
+    </script>
+  </body>
+</html>

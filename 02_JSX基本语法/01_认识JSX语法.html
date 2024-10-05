@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/babel.js"></script>
+
+    <script type="text/babel">
+      // 创建root
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+
+      // 封装组件
+      class App extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            message: "Hello World",
+            imgUrl:
+              "https://img2.baidu.com/it/u=3319209296,2115459518&fm=253&fmt=auto&app=138&f=JPEG?w=755&h=500",
+            href: "https://www.baidu.com"
+          };
+        }
+        //
+        render() {
+          const { message, imgUrl, href } = this.state;
+          return (
+            <div>
+              {/* jsx注释写法*/}
+              <h2 title={message}>{message}</h2>
+              <img src={imgUrl} alt="" />
+              <a href={href}>百度一下</a>
+            </div>
+          );
+        }
+      }
+
+      // 渲染组件
+      root.render(<App />);
+    </script>
+  </body>
+</html>

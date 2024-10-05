@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <style>
+      .active {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/babel.js"></script>
+
+    <script type="text/babel">
+      // 创建root
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+
+      // 封装组件
+      class App extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            movies: ["星际穿越", "盗梦空间", "大话西游", "流浪地球"],
+            currentIndex: 0
+          };
+        }
+
+        itemClick(index) {
+          console.log(index);
+          this.setState({
+            currentIndex: index
+          });
+        }
+
+        render() {
+          const { movies, currentIndex } = this.state;
+          return (
+            <div>
+              <ul>
+                {movies.map((item, index) => {
+                  return (
+                    <li
+                      className={currentIndex === index ? "active" : ""}
+                      key={item}
+                      onClick={() => {
+                        this.itemClick(index);
+                      }}
+                    >
+                      {item}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          );
+        }
+      }
+
+      // 渲染组件
+      root.render(<App />);
+    </script>
+  </body>
+</html>

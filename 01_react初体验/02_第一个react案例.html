@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!--CDN引入-->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <!--babel-->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+      //    渲染一个Hello world
+      // 这是react18之前
+      ReactDOM.render(<h2>Hello world</h2>, document.querySelector("#root"));
+      // react18之后
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+      root.render(<h2>Hello world</h2>);
+    </script>
+  </body>
+</html>

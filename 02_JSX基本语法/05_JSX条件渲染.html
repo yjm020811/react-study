@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/babel.js"></script>
+
+    <script type="text/babel">
+      // 创建root
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+
+      // 封装组件
+      class App extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            message: "Hello World",
+            isReady: true,
+            friend: {
+              name: "yjm",
+              age: 20
+            },
+            isLogin: false
+          };
+        }
+
+        render() {
+          const { message, isReady, friend, isLogin } = this.state;
+          let showElement = null;
+          isReady
+            ? (showElement = <h2>准备开始</h2>)
+            : (showElement = <h2>还没准备好</h2>);
+          return (
+            <div>
+              {/*根据条件给变量赋值不同的内容*/}
+              {showElement}
+              {/*三元运算符*/}
+              <div>{isReady ? "准备战斗" : "取消战斗"}</div>
+              {/*当某一个值,有可能是undefined,使用&&及您修改条件判断*/}
+              <div>
+                {friend && <div>{friend.name + "--" + friend.age}</div>}
+              </div>
+              {isLogin ? <span>登录成功</span> : <span>登录失败</span>}
+            </div>
+          );
+        }
+      }
+
+      // 渲染组件
+      root.render(<App />);
+    </script>
+  </body>
+</html>

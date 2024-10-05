@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/babel.js"></script>
+
+    <script type="text/babel">
+      // 创建root
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+
+      // 封装组件
+      class App extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            counter: 100
+          };
+        }
+
+        btnClick() {
+          console.log("btnClick");
+          this.setState({
+            counter: this.state.counter + 1
+          });
+        }
+        btn2Click() {
+          console.log("btn2Click");
+          this.setState({
+            counter: 999
+          });
+        }
+
+        render() {
+          const { message, counter } = this.state;
+          return (
+            <div>
+              {/* bind绑定*/}
+              <button onClick={this.btnClick.bind(this)}>点击加1</button>
+              {/* 箭头函数绑定*/}
+              <button onClick={() => this.btn2Click()}>点击加1</button>
+              <h2>{counter}</h2>
+            </div>
+          );
+        }
+      }
+
+      // 渲染组件
+      root.render(<App />);
+    </script>
+  </body>
+</html>
