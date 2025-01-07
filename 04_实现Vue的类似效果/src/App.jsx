@@ -5,6 +5,7 @@ import Watch from "./components/watch";
 import VModel from "./components/v-model";
 import SlotName from "./components/slotName.jsx";
 import KeepAlive from "./components/keepAlive";
+import Parent from "./components/项目踩坑/parent";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         这是插槽内容
       </SlotName>
       <KeepAlive />
+      <Parent />
     </div>
   );
 };
