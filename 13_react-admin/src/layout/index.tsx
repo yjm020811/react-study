@@ -18,7 +18,8 @@ const App: React.FC = () => {
 
   return (
     <div className="layout">
-      <Layout>
+      <Layout style={{ height: "100vh" }}>
+        {/* 添加这行，设置整体高度 */}
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <Aside></Aside>
         </Sider>
@@ -32,7 +33,9 @@ const App: React.FC = () => {
               padding: 24,
               minHeight: 280,
               background: colorBgContainer,
-              borderRadius: borderRadiusLG
+              borderRadius: borderRadiusLG,
+              overflow: "auto",
+              height: "calc(100vh - 112px)"
             }}
           >
             <Cont></Cont>

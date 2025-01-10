@@ -3,7 +3,7 @@ import LayOut from "./layout/index";
 import Login from "./views/login/index";
 import Dashboard from "./views/dashboard";
 import GoodList from "./views/goods/goodList";
-import User from "./views/user";
+import Article from "./views/article/index";
 function App() {
   return (
     <HashRouter>
@@ -13,7 +13,7 @@ function App() {
           {/* 二级路由需要指定出口 */}
           <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="/goods/list" element={<GoodList />}></Route>
-          <Route path="/user" element={<User />}></Route>
+          <Route path="/article" element={<Article />}></Route>
         </Route>
         <Route path="/login" element={<Login />} />
       </Routes>

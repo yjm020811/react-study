@@ -6,7 +6,7 @@ import {
 import Dashboard from "./dashboard";
 import GoodList from "./goods/goodList";
 import GoodForm from "./goods/goodForm";
-import User from "./user";
+import Article from "./article/index";
 import { ItemProps } from "../layout/Aside/index";
 
 // 动态路由：根据后端响应的角色，计算出该角色可以访问哪些动态路由
@@ -42,9 +42,9 @@ export const asyncRoutes: ItemProps[] = [
   },
   {
     key: "1003",
-    path: "/user",
-    label: "用户管理",
-    element: <User />,
+    path: "/article",
+    label: "文章管理",
+    element: <Article />,
     icon: <UserAddOutlined />
   }
 ];
