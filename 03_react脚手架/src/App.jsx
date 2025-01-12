@@ -1,30 +1,35 @@
 import React from "react";
 
-
 import Hello from "./components/Hello/Hello";
 import Welcome from "./components/Welcome/Welcome";
 import Message from "./components/message/Message";
+import BiBao from "./components/闭包";
+import State from "./components/闭包/useState闭包";
 
 // 创建App组件
 class App extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            banners:["新歌曲","新mv","新歌单"],
-            counter:100
-        }
-    }
-    render() {
-        const{banners,counter}=this.state
-        return (
-            <div>
-                <Hello banners={banners}></Hello>
-                <Welcome></Welcome>
-                <Message></Message>
-                <h2>当前计数:{counter}</h2>
-            </div>
-        )
-    }
+  constructor() {
+    super();
+    this.state = {
+      banners: ["新歌曲", "新mv", "新歌单"],
+      counter: 100
+    };
+  }
+  render() {
+    const { banners, counter } = this.state;
+    return (
+      <div>
+        <Hello banners={banners}></Hello>
+        <Welcome></Welcome>
+        <Message></Message>
+        <h2>当前计数:{counter}</h2>
+        <hr />
+        <BiBao></BiBao>
+        <hr />
+        <State></State>
+      </div>
+    );
+  }
 }
 
 // 暴露App组件
