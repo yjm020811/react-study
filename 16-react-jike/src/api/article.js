@@ -16,3 +16,19 @@ export const publishArticleApi = (data) => {
     data
   });
 };
+
+export const getArticleListApi = () => {
+  return request.get("/mp/articles");
+};
+
+export const delArticleApi = (id) => {
+  return request.delete(`/mp/articles/${id}`);
+};
+
+export const getArticleByIdApi = (id) => {
+  return request.get(`/mp/articles/${id}`);
+};
+
+export const updateArticleApi = (data, id) => {
+  return request.put(`/mp/articles/${id}?draft=false`, data);
+};

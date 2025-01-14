@@ -36,9 +36,6 @@ const Publish = () => {
   // 发布文章
   const handlePublish = (formData) => {
     console.log(formData);
-    // 校验封面类型与实际图片数量是否匹配
-    if (imageList.length !== coverType)
-      return message.warning("封面类型与实际图片数量不匹配");
     // 请求参数
     const reqData = {
       title: "",
