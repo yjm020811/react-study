@@ -71,7 +71,7 @@ export const Count3: React.FC = () => {
   return (
     <div>
       <div>Count的值：{count}</div>
-      <button onClick={add}>+1</button>
+      <button onClick={add}>+2</button>
     </div>
   );
 };
@@ -79,6 +79,8 @@ export const Count3: React.FC = () => {
 // p7：更新对象类型的值
 export const UserInfo: React.FC = () => {
   const [user, setUser] = useState({ name: "张三", age: 18 });
+
+  console.log("user", user);
 
   const update = () => {
     // 1.直接修改user的值，不会触发组件重新渲染
