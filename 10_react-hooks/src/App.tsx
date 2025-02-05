@@ -7,6 +7,7 @@ import { Count2 } from "./components/useState/index.tsx";
 import { Count3 } from "./components/useState/index.tsx";
 import { UserInfo } from "./components/useState/index.tsx";
 import { FUpdate } from "./components/useState/index.tsx";
+import { Count4 } from "./components/useState/index.tsx";
 import { InputFocus } from "./components/useRef/index.tsx";
 import { Counter } from "./components/useRef/index.tsx";
 import { RefTimer } from "./components/useRef/index.tsx";
@@ -31,6 +32,7 @@ const App: React.FC = () => {
       <Count3></Count3>
       <UserInfo></UserInfo>
       <FUpdate></FUpdate>
+      <Count4></Count4>
       <CountEffect1></CountEffect1>
       <ColorFatherCom></ColorFatherCom>
       <TestMouseInfo></TestMouseInfo>
