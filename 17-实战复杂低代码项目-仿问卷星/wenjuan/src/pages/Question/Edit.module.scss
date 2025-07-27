@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  .header {
+    height: 60px;
+    background-color: #fff;
+  }
+  .content {
+    flex: auto;
+    padding: 12px 0;
+    display: flex;
+    height: 100%;
+    .left {
+      width: 200px;
+      background-color: #fff;
+      padding: 0 12px;
+    }
+    .center {
+      flex: 1;
+      background-color: #edeff3;
+      position: relative;
+      overflow: hidden;
+      .canvas {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 712px;
+        background-color: #fff;
+        overflow: auto;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+        &::-webkit-scrollbar {
+          width: 6px;
+          border-radius: 12px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: #ccc;
+        }
+      }
+    }
+    .right {
+      width: 300px;
+      background-color: #fff;
+      padding: 0 12px;
+    }
+  }
+}

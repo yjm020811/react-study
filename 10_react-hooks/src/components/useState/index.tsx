@@ -71,7 +71,7 @@ export const Count3: React.FC = () => {
   return (
     <div>
       <div>Count的值：{count}</div>
-      <button onClick={add}>+1</button>
+      <button onClick={add}>+2</button>
     </div>
   );
 };
@@ -79,6 +79,8 @@ export const Count3: React.FC = () => {
 // p7：更新对象类型的值
 export const UserInfo: React.FC = () => {
   const [user, setUser] = useState({ name: "张三", age: 18 });
+
+  console.log("user", user);
 
   const update = () => {
     // 1.直接修改user的值，不会触发组件重新渲染
@@ -105,6 +107,24 @@ export const FUpdate: React.FC = () => {
   return (
     <div>
       <button onClick={onRefresh}>点击强制刷新--{Date.now()}</button>
+    </div>
+  );
+};
+
+// p9.更新注意事项
+export const Count4: React.FC = () => {
+  const [count, setCount] = useState(0);
+  const add = () => {
+    setCount(count + 1); // 这会将count设置为1（但还未生效）
+    setCount((count) => count + 2); // 这会基于上一次的结果将count设置为3
+    setCount(100); // 这会将count设置为100
+  };
+  // 最终，count的值会是100，因为最后一次调用setCount(100)覆盖了之前的更新
+  // 如果想要三个更新都生效，可以使用函数式更新  setCount(prev => prev + 1);
+  return (
+    <div>
+      <div>Count的值：{count}</div>
+      <button onClick={add}>+1</button>
     </div>
   );
 };

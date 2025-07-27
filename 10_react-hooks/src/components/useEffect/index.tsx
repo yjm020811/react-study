@@ -2,14 +2,21 @@ import React, { useEffect, useState } from "react";
 
 export const CountEffect1: React.FC = () => {
   const [count, setCount] = useState(0);
+  const [data, setData] = useState({});
 
   // 1.如果不传递依赖项数组，那么useEffect会在每次渲染后执行
   useEffect(() => {
     console.log("useEffect依赖项为空，count发生了变化", count);
   });
-  // 2.如果依赖项是空数组，那么useEffect只会在第一次渲染后执行
+  // 2.如果依赖项是空数组，那么useEffect只会在第一次渲染后执行,可以在组件刚进入页面（即组件挂载时）发送请求
   useEffect(() => {
     console.log("useEffect依赖项为空数组，count发生了变化", count);
+    fetch("https://dummyjson.com/posts/1")
+      .then((e) => e.json())
+      .then((e) => {
+        setData(e.tags);
+        console.log(e);
+      });
   }, []);
 
   // 3.如果有依赖项，那么useEffect会在该依赖项发生变化后执行
@@ -21,6 +28,7 @@ export const CountEffect1: React.FC = () => {
     <>
       <h2 style={{ color: "red" }}>useEffect</h2>
       <h3>count的值：{count}</h3>
+      <div>data的值：{JSON.stringify(data)}</div>
       <button onClick={() => setCount(count + 1)}>+1</button>
     </>
   );

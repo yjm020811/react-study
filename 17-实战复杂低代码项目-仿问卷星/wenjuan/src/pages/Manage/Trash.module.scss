@@ -1,0 +1,22 @@
+.container {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .left {
+    display: flex;
+    align-items: center;
+  }
+
+  .right {
+    display: flex;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
